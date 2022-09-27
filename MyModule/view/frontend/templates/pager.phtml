@@ -1,0 +1,46 @@
+<?php
+// get custom data
+$custom_data = $block->getCustomData();
+?>
+<fieldset class="fieldset">
+    <?php
+    if (count($custom_data)) {
+        ?>
+        <div class="table-wrapper custom-data ">
+            <table class="data table table-data-items ">
+                <caption class="table-caption"><?= $block->escapeHtml('Custom Pagination') ?></caption>
+                <thead>
+                    <tr>
+                        <th scope="col" class="col name"><?= $block->escapeHtml('Name') ?></th>
+                        <th scope="col" class="col orders"><?= $block->escapeHtml('Orders') ?></th>
+                        <th scope="col" class="col orderitem"><?= $block->escapeHtml('Items') ?></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($custom_data as $item): ?>
+                    <tr>
+                        <td data-th="Name" class="col name">
+                         <span><?= $block->escapeHtml($item->getName()) ?></span>
+                        </td>
+                        <td data-th="Orders" class="col orders">
+                            <span><?= $block->escapeHtml($item->getOrders()) ?></span>
+                        </td>
+                        <td data-th="Items" class="col orderitem">
+                            <span><?= $block->escapeHtml($item->getOrderItem()) ?></span>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php if ($block->getPagerHtml()): ?>
+                <div class="order-products-toolbar toolbar bottom">
+                    <?= $block->getPagerHtml() ?>
+                </div>
+        <?php endif ?>
+    <?php } else { ?>
+                <div class="message info empty">
+                    <span><?= $block->escapeHtml('You have no data in table.') ?></span>
+                </div>
+    <?php  } ?>
+</fieldset>
