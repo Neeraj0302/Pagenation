@@ -33,14 +33,15 @@ class Index extends Action
 //     public function execute()
 //     {
 //         $blogData = new DataObject(['blog_id' => '1', 'blog_title' => 'Blog Title']);
-//         $this->_eventManager->dispatch('dolphin_MyModule_blog',
-//             [
-//                 'blog' => $blogData
-//             ]
-//         );
+//         // $this->_eventManager->dispatch('dolphin_MyModule_blog',
+//         //     [
+//         //         'blog' => $blogData
+//         //     ]
+//         // );
 //         echo "Dolphin MyModule Event";exit;
 //     }
-// }
+//  }
+
 
 
 // namespace Dolphin\MyModule\Controller\Index;

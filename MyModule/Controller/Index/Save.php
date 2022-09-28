@@ -19,9 +19,11 @@ class Save extends \Magento\Framework\App\Action\Action
 
      public function execute()
      {
+          
           if ($this->getRequest()->isPost()) {
                $input = $this->getRequest()->getPostValue();
                $postData = $this->_contactFactory->create();
+
                if (isset($input['editId'])) {
                     $id = $input['editId'];
                } else {
@@ -35,6 +37,11 @@ class Save extends \Magento\Framework\App\Action\Action
                }else{
                     $postData->setData($input)->save();
                }
+               $this->_eventManager->dispatch('dolphin_MyModule_blog',
+               [
+                'blog' => $input
+               ]
+               );
                $this->messageManager->addSuccessMessage("Data added successfully!");
                return $this->_redirect('mymodule/index/index');
           }

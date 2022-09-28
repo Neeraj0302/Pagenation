@@ -1,6 +1,6 @@
 <?php
 
-namespace Dolphin\MyModule\Observer;
+namespace Dolphin\Mymodule\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
@@ -9,15 +9,15 @@ class GetBlog implements ObserverInterface
 {
     public function execute(Observer $observer)
     {
+
         $blogData = $observer->getEvent()->getBlog();
-        $blogId = $blogData->getBlogId();
-        $blogTitle = $blogData->getBlogTitle();
+        //$formData = $observer->getEvent()->getBlog();
+        
 
         $writer = new \Zend_Log_Writer_Stream(BP . '/var/log/blog.log'); //custom log file
         $logger = new \Zend_Log();
         $logger->addWriter($writer);
-        $logger->info('blog id: '.$blogId);
-        $logger->info('blog title: '.$blogTitle);
+        $logger->info(print_r($blogData['name'],true));
 
         return $this;
     }
