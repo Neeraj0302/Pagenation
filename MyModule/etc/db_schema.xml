@@ -16,7 +16,7 @@
 		</constraint>
    	</table>
      
-     <table name="dolphin_mymodule_customer" resource="default" engine="innodb" comment="Dolphin Customer Table">
+     <!-- <table name="dolphin_mymodule_customer" resource="default" engine="innodb" comment="Dolphin Customer Table">
 		<column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="ID" />
 		<column xsi:type="varchar" name="name" nullable="false" length="25" comment="Name" />
 		<column xsi:type="varchar" name="email" nullable="false" length="25" comment="Email" />
@@ -29,7 +29,7 @@
 		<constraint xsi:type="primary" referenceId="PRIMARY">
 			<column name="id" />
 		</constraint>
-   	</table>
+   	</table> -->
 
 
 </schema>
