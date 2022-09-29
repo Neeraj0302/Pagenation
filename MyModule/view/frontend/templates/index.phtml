@@ -1,3 +1,128 @@
+<!-- <form role="search" id="form">
+  <input type="search" id="query" name="q"
+   placeholder="Search..."
+   aria-label="Search through site content">
+  <button>
+    <svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg>
+  </button>
+</form> -->
+
+
+<!-- <script type="text/javascript">
+    require(["jquery"],function($) {
+        $(document).ready(function() {
+            var customurl = "<?php echo $this->getUrl().'frontname/index/index'?>";
+            $.ajax({
+                url: customurl,
+                type: 'POST',
+                dataType: 'json',
+                data: {
+                    customdata1: 'test1',
+                    customdata2: 'test2',
+                },
+            complete: function(response) {             
+                country = response.responseJSON.default_country;
+                state = response.responseJSON.state;         
+                console.log(state+' '+country);   
+                },
+                error: function (xhr, status, errorThrown) {
+                    console.log('Error happens. Try again.');
+                }
+            });
+        });
+    });
+</script> -->
+<!-- <html>
+<head>
+<title>name</title>
+</head>
+<body>
+    <h1>Enter The Key Word</h1>
+    <div class="frmSearch">
+        <input type="text" id="query" placeholder="Product Name" />
+        <div id="suggesstion-box"></div>
+        <button>Search</button>
+    </div>
+</body>
+</html> -->
+
+
+<form id="form" role="search">
+        <input type="search" id="query" name="q"
+        placeholder="Search..."
+        aria-label="Search through site content">
+        <div id="suggesstion-box"></div>
+        <!-- <button>Search</button> -->
+</form>
+<div class="main-search-results"></div>
+
+
+
+
+<script type="text/javascript">
+    require(["jquery"],function($) {
+        $('#query').keyup(function() {
+            var search_text = jQuery("#query").val();
+            try{
+            $.ajax({
+                url: '<?php echo $block->getUrl('mymodule/index/search') ?>',
+                type: 'POST',
+                dataType: 'json',
+                showLoader : true,
+                data: {
+                    'search_text' :  search_text 
+                },
+                success : function(data) {
+                    //console.log(data);
+                            $('.main-search-results').html('');
+                            for(var i = 0 ; i < data.length ; i++){
+                                var item = data[i] ; 
+                                
+                                $('.main-search-results').append('<li> '+item.name+'  </li>');
+                                
+
+                            }
+                            
+                        }
+                    });
+                } catch (e) {
+            }
+        
+    });
+});
+
+
+
+
+// function selectCountry(data) {
+// 	$("#search-box").val(data);
+// 	$("#suggesstion-box").hide();
+// }
+
+ </script>
+
+ <script>
+//     $('#query').keyup(function(){
+//             var search_text = jQuery("#query").val();
+//             try {
+//                     jQuery.ajax({
+//                         url : '<?php echo $block->getUrl('mymodule/index/search') ?>',
+//                         dataType : 'json',
+//                         data: { 'search_text' :  search_text  },
+//                         type : 'post',
+//                         success : function(data) {
+//                             jQuery('.main-search-results').html(data.product);
+//                         }
+//                     });
+//                 } catch (e) {
+//                 }
+//         });
+
+// </script>
+
+
+
+
 <table>
        
     <tr>

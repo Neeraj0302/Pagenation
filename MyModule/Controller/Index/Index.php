@@ -23,6 +23,7 @@ class Index extends Action
     }
 }
 
+
 // namespace Dolphin\MyModule\Controller\Index;
 
 // use Magento\Framework\DataObject;
